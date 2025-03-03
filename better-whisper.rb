@@ -5,14 +5,14 @@
 class BetterWhisper < Formula
   desc "A better CLI for whisper-cpp"
   homepage "https://github.com/akash-joshi/better-whisper"
-  version "0.1.11"
+  version "0.1.11-rc1"
 
   depends_on "ffmpeg"
   depends_on "whisper-cpp"
 
   on_macos do
-    url "https://github.com/akash-joshi/better-whisper/releases/download/v0.1.11/better-whisper_0.1.11_darwin_all.tar.gz"
-    sha256 "4e0310cda54511f8deffae80db3428eb8ba782096bb7e3cfc986747874dbd3c0"
+    url "https://github.com/akash-joshi/better-whisper/releases/download/v0.1.11-rc1/better-whisper_0.1.11-rc1_darwin_all.tar.gz"
+    sha256 "01429c511296e581bfe336963bcdd9bfa0e83cf7782479e5867e502547375c03"
 
     def install
       bin.install "better-whisper"
@@ -20,20 +20,20 @@ class BetterWhisper < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/akash-joshi/better-whisper/releases/download/v0.1.11/better-whisper_0.1.11_linux_amd64.tar.gz"
-        sha256 "d30e91a496bd3069ffc8fb6ad19d278d7997e1f78ae12a72b950b3c7996aae86"
+        url "https://github.com/akash-joshi/better-whisper/releases/download/v0.1.11-rc1/better-whisper_0.1.11-rc1_linux_amd64.tar.gz"
+        sha256 "550737463a50a76734cf97ee4f0debb53e69a3d3c5733af329517a49ec8b29b7"
 
         def install
           bin.install "better-whisper"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/akash-joshi/better-whisper/releases/download/v0.1.11/better-whisper_0.1.11_linux_arm64.tar.gz"
-        sha256 "b1071ba8df460446d8f693c187d9881eb99a1f64db6ccfe58fe6ed35fbffb624"
+        url "https://github.com/akash-joshi/better-whisper/releases/download/v0.1.11-rc1/better-whisper_0.1.11-rc1_linux_arm64.tar.gz"
+        sha256 "970006765cb3afcba4a5b9fa11a6298d510a893d9a4e81c9058ae7321193ac1d"
 
         def install
           bin.install "better-whisper"
